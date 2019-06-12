@@ -1,7 +1,19 @@
 import Component from '@ember/component';
+import { readOnly } from '@ember/object/computed';
+import { inject } from '@ember/service';
+import { task } from 'ember-concurrency';
 
 export default Component.extend({
-  layoutName: 'components/part-1/base',
+  flashMessages: inject(),
 
-  pageTitle: '#1. Basic Form Saving: ember-concurrency',
+  saveTask: task(function * () {
+    yield this.model.save();
+    this.flashMessages.success('Book saved successfully');
+  }).drop(),
+
+  isSaving: readOnly('saveTask.isRunning'),
+
+  actions: {
+    onSave() { return this.saveTask.perform(); }
+  }
 });

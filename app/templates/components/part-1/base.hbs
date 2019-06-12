@@ -1,7 +1,5 @@
 <PageTitle>{{@pageTitle}}</PageTitle>
 
-{{log @isSaving}}
-
 <div class="container mx-auto max-w-md">
   <form {{action @onSave on="submit"}}>
     <FormField @value={{@model.title}}

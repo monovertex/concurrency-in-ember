@@ -1,7 +1,7 @@
 <PageTitle>{{@pageTitle}}</PageTitle>
 
 <div class="container mx-auto max-w-md">
-  <form {{action @onSave on="submit"}}>
+  <form id="form-book" {{action (optional @onSave) on="submit"}}>
     <FormField @value={{@model.title}}
       @id="input-title"
       @label="Book Title"

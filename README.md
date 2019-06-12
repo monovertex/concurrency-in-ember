@@ -5,7 +5,7 @@
 1. Base
   * Pressing the save button should save the model as final.
   * While saving the save button and the form have to be disabled.
-  * After the final save is done, display a success message and clear the form.
+  * After the final save is done, display a success message and re-enable everything.
 2. Draft Saving
   * Save model as draft in real-time when properties are updated.
   * A notice should be displayed while the model is draft.

@@ -6,13 +6,15 @@
       @id="input-title"
       @label="Book Title"
       @placeholder="The Great Gatsby"
-      @class="mb-3"/>
+      @class="mb-3"
+      @required={{true}}/>
 
     <FormField @value={{@model.author}}
       @id="input-author"
       @label="Author"
       @placeholder="F. Scott Fitzgerald"
-      @class="mb-3"/>
+      @class="mb-3"
+      @required={{true}}/>
 
     <FormField @value={{@model.publisher}}
       @id="input-publisher"
@@ -24,7 +26,7 @@
       @id="input-year"
       @label="Year"
       @placeholder="1922"
-      @class="mb-3"/>
+      @class="mb-6"/>
 
     <div class="text-right">
       <FormButton @id="button-submit" @type="submit">

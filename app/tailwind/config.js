@@ -1,4 +1,4 @@
-/*global module*/
+/*global module, require*/
 module.exports = {
   prefix: '',
   important: false,
@@ -332,10 +332,11 @@ module.exports = {
       full: '100%',
       screen: '100vh',
     },
-    minWidth: {
+    minWidth: (theme) => ({
       '0': '0',
+      ...theme('spacing'),
       full: '100%',
-    },
+    }),
     objectPosition: {
       bottom: 'bottom',
       center: 'center',
@@ -485,5 +486,7 @@ module.exports = {
     zIndex: ['responsive'],
   },
   corePlugins: {},
-  plugins: [],
+  plugins: [
+    require('tailwindcss-spinner')(),
+  ],
 }

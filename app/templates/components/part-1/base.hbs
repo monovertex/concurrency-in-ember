@@ -1,5 +1,35 @@
-<PageTitle>{{this.pageTitle}}</PageTitle>
+<PageTitle>{{@pageTitle}}</PageTitle>
 
-<div class="container mx-auto">
-  Hello World!
+<div class="container mx-auto max-w-md">
+  <form {{action @onSave on="submit"}}>
+    <FormField @value={{@model.title}}
+      @id="input-title"
+      @label="Book Title"
+      @placeholder="The Great Gatsby"
+      @class="mb-3"/>
+
+    <FormField @value={{@model.author}}
+      @id="input-author"
+      @label="Author"
+      @placeholder="F. Scott Fitzgerald"
+      @class="mb-3"/>
+
+    <FormField @value={{@model.publisher}}
+      @id="input-publisher"
+      @label="Publisher"
+      @placeholder="Penguin Random House"
+      @class="mb-3"/>
+
+    <FormField @value={{@model.year}}
+      @id="input-year"
+      @label="Year"
+      @placeholder="1922"
+      @class="mb-3"/>
+
+    <div class="text-right">
+      <FormButton @id="button-submit" @type="submit">
+        💾 Save
+      </FormButton>
+    </div>
+  </form>
 </div>

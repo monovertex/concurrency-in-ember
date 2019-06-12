@@ -1,4 +1,3 @@
-import Route from '@ember/routing/route';
+import Route from 'concurrency-in-ember/routes/abstract';
 
-export default Route.extend({
-});
+export default Route.extend();

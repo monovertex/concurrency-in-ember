@@ -13,6 +13,8 @@ const Model = Object.extend({
 
 export default Route.extend({
   model() {
-    return Model.create();
+    const model = Model.create();
+    console.log('Model:', model);
+    return model;
   }
 });

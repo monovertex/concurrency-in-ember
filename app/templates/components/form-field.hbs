@@ -5,9 +5,10 @@
 
   {{input
     value=@value
-    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+    class=(concat "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" (if @disabled " opacity-50 cursor-not-allowed"))
     id=@id
     type=(if @type @type "text")
     placeholder=@placeholder
-    required=@required}}
+    required=@required
+    disabled=@disabled}}
 </div>

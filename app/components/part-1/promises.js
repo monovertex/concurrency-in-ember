@@ -1,7 +1,20 @@
 import Component from '@ember/component';
+import { inject } from '@ember/service';
 
 export default Component.extend({
-  layoutName: 'components/part-1/base',
+  flashMessages: inject(),
 
-  pageTitle: '#1. Basic Form Saving: Promises (async/await)',
+  isSaving: false,
+
+  actions: {
+    async onSave() {
+      this.set('isSaving', true);
+      try {
+        await this.model.save();
+        this.flashMessages.success('Book saved successfully');
+      } finally {
+        this.set('isSaving', false);
+      }
+    }
+  }
 });

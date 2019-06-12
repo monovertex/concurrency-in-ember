@@ -9,25 +9,25 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('part-1', function() {
     this.route('promises');
-    this.route('ember-concurrency');
+    this.route('coroutines');
     this.route('observables');
   });
 
   this.route('part-2', function() {
     this.route('promises');
-    this.route('ember-concurrency');
+    this.route('coroutines');
     this.route('observables');
   });
 
   this.route('part-3', function() {
     this.route('promises');
-    this.route('ember-concurrency');
+    this.route('coroutines');
     this.route('observables');
   });
 
   this.route('part-4', function() {
     this.route('promises');
-    this.route('ember-concurrency');
+    this.route('coroutines');
     this.route('observables');
   });
 });

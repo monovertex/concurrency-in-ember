@@ -1,5 +1,7 @@
 # Concurrency in Ember: promises, coroutines & observables
 
+## [Presentation](https://docs.google.com/presentation/d/1cHnennXLAWLx9Dso7vNOzsGc6W2Ty3WbTKkzQa3sL6s/edit?usp=sharing)
+
 ## Form Requirements
 
 1. Base

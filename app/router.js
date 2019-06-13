@@ -24,6 +24,12 @@ Router.map(function() {
     this.route('coroutines');
     this.route('observables');
   });
+
+  this.route('part-4', function() {
+    this.route('promises');
+    this.route('coroutines');
+    this.route('observables');
+  });
 });
 
 export default Router;

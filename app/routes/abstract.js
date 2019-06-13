@@ -5,8 +5,12 @@ import { defer } from 'rsvp';
 
 const Model = Object.extend({
   save() {
+    console.log('🏃 Model started saving', this);
     const deferred = defer();
-    later(() => deferred.resolve(), 1000 + Math.random() * 2000);
+    later(() => {
+      deferred.resolve();
+      console.log('✋ Model finished saving', this);
+    }, 1000 + Math.random() * 2000);
     return deferred.promise;
   },
 });

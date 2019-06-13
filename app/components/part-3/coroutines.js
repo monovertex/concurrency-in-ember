@@ -9,8 +9,8 @@ export default Component.extend({
 
   saveTask: task(function * () {
     try {
-      yield this.draftSaveDebounceTask.last;
-      yield this.draftSaveTask.last;
+      yield resolve(this.draftSaveDebounceTask.last);
+      yield resolve(this.draftSaveTask.last);
     } catch (e) {
       // Do nothing.
     }
@@ -21,7 +21,7 @@ export default Component.extend({
   }).drop(),
 
   draftSaveDebounceTask: task(function * () {
-    yield this.draftSaveTask.last;
+    yield resolve(this.draftSaveTask.last);
     yield timeout(500);
     return yield resolve(
       this.draftSaveTask.perform(...arguments));

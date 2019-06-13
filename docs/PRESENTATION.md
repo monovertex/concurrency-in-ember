@@ -14,7 +14,8 @@
 
 ## Overview of tools & technologies
 
-- Ember, short overview of architecture
+- Ember, ember-cli, short overview of architecture
+- Tailwind
 - Promises, async/await
 - Coroutines, ember-concurrency
 - Observables, RxJS, disclaimer

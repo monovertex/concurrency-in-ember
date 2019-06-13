@@ -221,20 +221,7 @@ module.exports = {
       default: '1',
     },
     fontFamily: {
-      sans: [
-        '-apple-system',
-        'BlinkMacSystemFont',
-        '"Segoe UI"',
-        'Roboto',
-        '"Helvetica Neue"',
-        'Arial',
-        '"Noto Sans"',
-        'sans-serif',
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-        '"Noto Color Emoji"',
-      ],
+      sans: ['Open Sans', 'sans-serif'],
       serif: [
         'Georgia',
         'Cambria',

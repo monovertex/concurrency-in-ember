@@ -26,14 +26,18 @@ export default Component.extend({
   },
 
   initializeFormSubscription() {
-    const submitStream = fromEvent(this.element.querySelector('#form-book'), 'submit', true);
-    const submitFormSubscription = submitStream.subscribe(bind(this, 'onSaveStarted'));
+    const submitStream = fromEvent(
+      this.element.querySelector('#form-book'), 'submit', true);
+    const submitFormSubscription = submitStream
+      .subscribe(bind(this, 'onSaveStarted'));
 
     const saveFinishedStream = submitStream.pipe(
-      audit(() => this.isSavingAsDraft ? this.draftSaveFinishedStream : from(true)),
+      audit(() => this.isSavingAsDraft
+        ? this.draftSaveFinishedStream : from(true)),
       flatMap((...args) => from(this.onSave(...args)))
     );
-    const saveFinishedSubscription = saveFinishedStream.subscribe(bind(this, 'onSaveFinished'));
+    const saveFinishedSubscription = saveFinishedStream
+      .subscribe(bind(this, 'onSaveFinished'));
 
     this.set('submitFormSubscription', submitFormSubscription);
     this.set('saveFinishedSubscription', saveFinishedSubscription);
@@ -49,9 +53,11 @@ export default Component.extend({
       flatMap((...args) => from(this.onSaveAsDraft(...args))),
       share(),
     );
-    saveSignal = saveFinishedStream.pipe(mapTo(true), startWith(true));
+    saveSignal = saveFinishedStream
+      .pipe(mapTo(true), startWith(true));
 
-    const subscription = saveFinishedStream.subscribe(bind(this, 'onSaveAsDraftFinished'));
+    const subscription = saveFinishedStream
+      .subscribe(bind(this, 'onSaveAsDraftFinished'));
     this.set('draftSaveFinishedStream', saveFinishedStream);
     this.set('changeSubject', changeSubject);
     this.set('changeSubscription', subscription);

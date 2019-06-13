@@ -25,16 +25,21 @@ export default Component.extend({
   },
 
   initializeFormSubscription() {
-    const submitStream = fromEvent(this.element.querySelector('#form-book'), 'submit', true);
-    const saveFinishedStream = submitStream.pipe(flatMap((...args) => from(this.onSave(...args))));
-    const subscription = saveFinishedStream.subscribe(bind(this, 'onSaveFinished'));
+    const submitStream = fromEvent(
+      this.element.querySelector('#form-book'), 'submit', true);
+    const saveFinishedStream = submitStream
+      .pipe(flatMap((...args) => from(this.onSave(...args))));
+    const subscription = saveFinishedStream
+      .subscribe(bind(this, 'onSaveFinished'));
     this.set('formSubscription', subscription);
   },
 
   initializeChangeSubscription() {
     const changeSubject = new Subject();
-    const saveFinishedStream = changeSubject.pipe(flatMap((...args) => from(this.onSaveAsDraft(...args))));
-    const subscription = saveFinishedStream.subscribe(bind(this, 'onSaveAsDraftFinished'));
+    const saveFinishedStream = changeSubject
+      .pipe(flatMap((...args) => from(this.onSaveAsDraft(...args))));
+    const subscription = saveFinishedStream
+      .subscribe(bind(this, 'onSaveAsDraftFinished'));
     this.set('changeSubject', changeSubject);
     this.set('changeSubscription', subscription);
   },

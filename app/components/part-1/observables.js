@@ -6,7 +6,6 @@ import { flatMap } from 'rxjs/operators';
 
 export default Component.extend({
   flashMessages: inject(),
-
   isSaving: false,
 
   didInsertElement() {
@@ -19,9 +18,12 @@ export default Component.extend({
   },
 
   initializeFormSubscription() {
-    const submitStream = fromEvent(this.element.querySelector('#form-book'), 'submit', true);
-    const saveFinishedStream = submitStream.pipe(flatMap((...args) => from(this.onSave(...args))));
-    const subscription = saveFinishedStream.subscribe(bind(this, 'onSaveFinished'));
+    const submitStream = fromEvent(
+      this.element.querySelector('#form-book'), 'submit', true);
+    const saveFinishedStream = submitStream
+      .pipe(flatMap((...args) => from(this.onSave(...args))));
+    const subscription = saveFinishedStream
+      .subscribe(bind(this, 'onSaveFinished'));
     this.set('formSubscription', subscription);
   },
 

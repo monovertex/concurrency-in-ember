@@ -31,7 +31,9 @@ export default Component.extend({
   },
 
   waitForDraftSave() {
-    if (this.saveAsDraftPromise) { return this.saveAsDraftPromise.catch(() => {}); }
+    if (this.saveAsDraftPromise) {
+      return this.saveAsDraftPromise.catch(() => {});
+    }
   },
 
   actions: {

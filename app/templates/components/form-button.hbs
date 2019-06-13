@@ -1,5 +1,5 @@
 <button
-  class={{concat "bg-blue-500 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline min-w-40" (if @disabled " opacity-50 cursor-not-allowed" " hover:bg-blue-700") (if @loading " spinner")}}
+  class={{concat "bg-blue-500 text-white font-semibold py-2 px-8 rounded focus:outline-none focus:shadow-outline min-w-40" (if @disabled " opacity-50 cursor-not-allowed" " hover:bg-blue-700") (if @loading " spinner") " " @class}}
   type={{if @type @type "button"}}
   disabled={{@disabled}}>
   {{yield}}

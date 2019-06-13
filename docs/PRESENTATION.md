@@ -24,7 +24,7 @@
 ## Overview of requirements
 
 - What do we build?
-- Parts 1, 2, 3 and 4
+- Parts 1, 2 and 3
 - Implementation in each technology
 
 ## Actual implementations

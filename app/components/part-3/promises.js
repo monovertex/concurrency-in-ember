@@ -40,8 +40,8 @@ export default Component.extend({
       await this.waitForDraftSave();
 
       try {
-        await this.model.save();
         this.model.set('isDraft', false);
+        await this.model.save();
         this.flashMessages.success('Book saved successfully');
       } finally {
         this.set('isSaving', false);

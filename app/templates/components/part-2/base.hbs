@@ -50,7 +50,7 @@
         @disabled={{@isSaving}}
         @loading={{@isSaving}}>
         <div class="flex align-center justify-center">
-          <div class={{if @isSavingAsDraft "spinner"}}>💾</div>
+          <div class={{if @isSavingAsDraft (unless @isSaving "spinner")}}>💾</div>
           <div class="ml-2">Save</div>
         </div>
       </FormButton>

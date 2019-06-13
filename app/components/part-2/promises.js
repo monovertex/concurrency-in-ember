@@ -24,8 +24,8 @@ export default Component.extend({
     async onSave() {
       this.set('isSaving', true);
       try {
-        await this.model.save();
         this.model.set('isDraft', false);
+        await this.model.save();
         this.flashMessages.success('Book saved successfully');
       } finally {
         this.set('isSaving', false);

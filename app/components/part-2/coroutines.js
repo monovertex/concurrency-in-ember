@@ -7,8 +7,8 @@ export default Component.extend({
   flashMessages: inject(),
 
   saveTask: task(function * () {
-    yield this.model.save();
     this.model.set('isDraft', false);
+    yield this.model.save();
     this.flashMessages.success('Book saved successfully');
   }).drop(),
 

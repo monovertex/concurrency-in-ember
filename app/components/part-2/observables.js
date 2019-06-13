@@ -41,11 +41,11 @@ export default Component.extend({
 
   onSave() {
     this.set('isSaving', true);
+    this.model.set('isDraft', false);
     return this.model.save();
   },
 
   onSaveFinished() {
-    this.model.set('isDraft', false);
     this.flashMessages.success('Book saved successfully');
     this.set('isSaving', false);
   },

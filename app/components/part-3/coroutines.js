@@ -2,12 +2,14 @@ import Component from '@ember/component';
 import { readOnly } from '@ember/object/computed';
 import { inject } from '@ember/service';
 import { task, timeout } from 'ember-concurrency';
+import { resolve } from 'rsvp';
 
 export default Component.extend({
   flashMessages: inject(),
 
   saveTask: task(function * () {
     try {
+      yield this.draftSaveDebounceTask.last;
       yield this.draftSaveTask.last;
     } catch (e) {
       // Do nothing.
@@ -18,11 +20,17 @@ export default Component.extend({
     this.flashMessages.success('Book saved successfully');
   }).drop(),
 
-  draftSaveTask: task(function * () {
+  draftSaveDebounceTask: task(function * () {
+    yield this.draftSaveTask.last;
     yield timeout(500);
+    return yield resolve(
+      this.draftSaveTask.perform(...arguments));
+  }).restartable(),
+
+  draftSaveTask: task(function * () {
     this.model.set('isDraft', true);
     return yield this.model.save();
-  }).restartable(),
+  }).keepLatest(),
 
   isSaving: readOnly('saveTask.isRunning'),
   isSavingAsDraft: readOnly('draftSaveTask.isRunning'),
@@ -33,7 +41,7 @@ export default Component.extend({
 
     onChange(key, value) {
       this.model.set(key, value);
-      return this.draftSaveTask.perform();
+      return this.draftSaveDebounceTask.perform();
     },
   }
 });

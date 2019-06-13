@@ -14,9 +14,6 @@
   * Change triggers should be debounced by 500ms.
   * That if a new draft save comes in while the previous save request is pending, we don't cancel, but wait instead.
   * Saving the model as final should wait for a currently ongoing draft save to finish first.
-4. Extra
-  * Testing
-  * Log the activity in a service.
 
 ## Implementations
 

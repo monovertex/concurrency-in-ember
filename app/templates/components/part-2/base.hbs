@@ -1,0 +1,59 @@
+<PageTitle>{{@pageTitle}}</PageTitle>
+
+<div class="container mx-auto max-w-md">
+  <form id="form-book" {{action (optional @onSave) on="submit"}}>
+    <FormField @value={{@model.title}}
+      @action={{action @onChange "title"}}
+      @id="input-title"
+      @label="Book Title"
+      @placeholder="The Great Gatsby"
+      @class="mb-3"
+      @required={{true}}
+      @disabled={{@isSaving}}/>
+
+    <FormField @value={{@model.author}}
+      @action={{action @onChange "author"}}
+      @id="input-author"
+      @label="Author"
+      @placeholder="F. Scott Fitzgerald"
+      @class="mb-3"
+      @required={{true}}
+      @disabled={{@isSaving}}/>
+
+    <FormField @value={{@model.publisher}}
+      @action={{action @onChange "publisher"}}
+      @id="input-publisher"
+      @label="Publisher"
+      @placeholder="Penguin Random House"
+      @class="mb-3"
+      @disabled={{@isSaving}}/>
+
+    <FormField @value={{@model.year}}
+      @action={{action @onChange "year"}}
+      @id="input-year"
+      @label="Year"
+      @placeholder="1922"
+      @class="mb-6"
+      @disabled={{@isSaving}}/>
+
+    <div class="flex items-center justify-end">
+      {{#if @isDraft}}
+        <div class="text-indigo-800 text-sm flex-grow font-light">
+          The book has been saved as draft.
+        </div>
+      {{/if}}
+
+      <FormButton
+        @id="button-submit"
+        @type="submit"
+        @class="flex-grow-0"
+        @disabled={{@isSaving}}
+        @loading={{@isSaving}}>
+        <div class="flex align-center justify-center">
+          <div class={{if @isSavingAsDraft "spinner"}}>💾</div>
+          <div class="ml-2">Save</div>
+        </div>
+      </FormButton>
+    </div>
+  </form>
+</div>

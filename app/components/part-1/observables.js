@@ -1,11 +1,13 @@
 import Component from '@ember/component';
 import { bind } from '@ember/runloop';
 import { inject } from '@ember/service';
-import { fromEvent, from } from 'rxjs';
+import { from, fromEvent } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
 
 export default Component.extend({
   flashMessages: inject(),
+
+  isSaving: false,
 
   didInsertElement() {
     this._super(...arguments);

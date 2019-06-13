@@ -12,7 +12,7 @@
   * A loader should be displayed while saving the model as draft.
 3. Refining
   * Change triggers should be debounced by 500ms.
-  * That if a new save comes in while the previous save request is pending, we don't cancel, but wait instead.
+  * That if a new draft save comes in while the previous save request is pending, we don't cancel, but wait instead.
   * Saving the model as final should wait for a currently ongoing draft save to finish first.
 4. Extra
   * Testing
